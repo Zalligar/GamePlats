@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/100-real-war-sounds-recorded-on-field-71759.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/Kenney Pixel.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://assets/pexels-pixabay-53594.jpg" type="Texture" id=4]
+[ext_resource path="res://What-Does-It-Mean-When-The-Sky-Is-Orange.jpg" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 23
+font_data = ExtResource( 2 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+uniform float scale : hint_range(0.1,10) = 2.0; 
+
+void fragment(){
+	vec4 pixelColor = texture(TEXTURE, UV * 2.0);
+	COLOR = pixelColor;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/scale = 2.0
+
+[node name="World" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ambient" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 615.0
+margin_top = 2.0
+margin_right = 666.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "Score: 0"
+align = 1
+valign = 1
+
+[node name="Level" type="Label" parent="."]
+margin_left = 6.54135
+margin_top = 1.94395
+margin_right = 93.5414
+margin_bottom = 31.9439
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GO" type="Label" parent="."]
+visible = false
+margin_left = 515.0
+margin_top = 295.0
+margin_right = 767.0
+margin_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Game Over"
+align = 1
+valign = 1
+max_lines_visible = 5
+
+[node name="Controles" type="Label" parent="."]
+margin_left = 1140.4
+margin_top = 2.8409
+margin_right = 1273.4
+margin_bottom = 62.8409
+custom_fonts/font = SubResource( 3 )
+text = "Player 1(A,S,D)
+Player 2(F,G,H)
+Player 3(J,K,L)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pexels-pixabay-53594" type="Sprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( 1216.06, 687.049 )
+scale = Vector2( 0.790049, 0.569189 )
+texture = ExtResource( 4 )
+
+[node name="pexels-pixabay-53595" type="Sprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( 1270.24, 697.794 )
+scale = Vector2( 2.54751, 2.00062 )
+texture = ExtResource( 5 )

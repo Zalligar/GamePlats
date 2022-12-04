@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/100-real-war-sounds-recorded-on-field-71759.mp3-36d1e1bea4ce36982c2a04411c466181.mp3str"
+
+[deps]
+
+source_file="res://assets/100-real-war-sounds-recorded-on-field-71759.mp3"
+dest_files=[ "res://.import/100-real-war-sounds-recorded-on-field-71759.mp3-36d1e1bea4ce36982c2a04411c466181.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
